@@ -22,8 +22,8 @@ Esta é uma API desenvolvida em .NET 8 que consome dados da API externa [PokeAPI
 3. Defina a string de conexão do Redis no `appsettings.json`:
    ```json
    {
-     "Redis": {
-       "ConnectionString": "localhost:6379"
+     "ConnectionString": {
+       "Redis": "localhost:6379"
      }
    }
    ```
