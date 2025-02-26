@@ -7,7 +7,7 @@ namespace Back.Redis.Api.Configurations
         public static void AddRedis(this IServiceCollection services, IConfiguration configuration) 
         {
             services.AddSingleton<IConnectionMultiplexer>(sp =>
-                ConnectionMultiplexer.Connect(configuration["Redis:Host"]!));
+                        ConnectionMultiplexer.Connect(configuration.GetConnectionString("Redis")!));
         }
     }
 }
