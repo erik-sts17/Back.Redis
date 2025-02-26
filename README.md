@@ -13,8 +13,8 @@ Esta é uma API desenvolvida em .NET 8 que consome dados da API externa [PokeAPI
 
 1. Clone o repositório:
    ```sh
-   git clone https://github.com/seu-usuario/seu-repositorio.git
-   cd seu-repositorio
+   git clone https://github.com/erik-sts17/Back.Redis.git
+   cd main
    ```
 
 2. Configure o Redis localmente ou utilize um serviço de hospedagem para Redis.
