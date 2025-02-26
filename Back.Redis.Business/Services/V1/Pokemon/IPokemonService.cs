@@ -4,6 +4,6 @@ namespace Back.Redis.Business.Services.V1.Pokemon
 {
     public interface IPokemonService
     {
-        public Task<PokemonResult?> GetByName(string nome);
+        public Task<PokemonResult?> GetByNameOrId(string nameOrId);
     }
 }

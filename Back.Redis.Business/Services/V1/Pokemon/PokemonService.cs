@@ -12,15 +12,15 @@ namespace Back.Redis.Business.Services.V1.Pokemon
         private readonly IMapper _mapper = mapper;
         private const string CACHE_KEY = "PokeApi";
 
-        public async Task<PokemonResult?> GetByName(string name)
+        public async Task<PokemonResult?> GetByNameOrId(string nameOrId)
         {
-            var cacheKey = $"{CACHE_KEY}.Name.{name}";
+            var cacheKey = $"{CACHE_KEY}.NameOrId.{nameOrId}";
             var cache = await _redisService.GetDataAsync<PokemonResult>(cacheKey);
 
             if (cache != null)
                 return cache;
 
-            var result = _mapper.Map<PokemonResult>(await _pokemonClient.GetByName(name));
+            var result = _mapper.Map<PokemonResult>(await _pokemonClient.GetByNameOrId(nameOrId));
             await _redisService.SetDataCache(cacheKey, result, TimeSpan.FromDays(1));
             return result;
         }

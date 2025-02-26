@@ -9,13 +9,13 @@ namespace Back.Redis.Api.Controllers.V1.Pokemon
     {
         private readonly IPokemonService _pokemonService = pokemonService;
 
-        [HttpGet("{name}")]
+        [HttpGet("{nameOrId}")]
         [ProducesResponseType(typeof(PokemonResult), StatusCodes.Status200OK)]
         [ProducesResponseType(StatusCodes.Status404NotFound)]
         [ProducesResponseType(StatusCodes.Status500InternalServerError)]
-        public async Task<IActionResult> GetByName(string name)
+        public async Task<IActionResult> GetByName(string nameOrId)
         {
-            var result = await _pokemonService.GetByName(name);
+            var result = await _pokemonService.GetByNameOrId(nameOrId);
             return Ok(result);
         }
     }
